@@ -1,7 +1,8 @@
 import { Component } from 'react';
-import FeedbackOptions from './Feedback/FeedbackOptions';
-import Section from './Section/Section';
-import Statistics from './Statistics/Statistics';
+import FeedbackOptions from './components/Feedback/FeedbackOptions';
+import Section from './components/Section/Section';
+import Statistics from './components/Statistics/Statistics';
+import { FEEDBACK_OPTIONS } from './data/option';
 
 class App extends Component {
   state = {
@@ -11,8 +12,12 @@ class App extends Component {
   };
 
   handleIncrement = evt => {
-    const textButton = evt.target.textContent.toLowerCase();
-    this.setState(prevState => ({ [textButton]: prevState[textButton] + 1 }));
+    const dataAttribute = evt.target.dataset.feedback;
+    this.setState(prevState => ({
+      [dataAttribute]: prevState[dataAttribute] + 1,
+    }));
+    // const textButton = evt.target.textContent.toLowerCase();
+    // this.setState(prevState => ({ [textButton]: prevState[textButton] + 1 }));
   };
 
   countTotalFeedback = () => {
@@ -35,7 +40,10 @@ class App extends Component {
     return (
       <div className="App">
         <Section title="Please leave feedback">
-          <FeedbackOptions onLeaveFeedback={this.handleIncrement} />
+          <FeedbackOptions
+            options={FEEDBACK_OPTIONS}
+            onLeaveFeedback={this.handleIncrement}
+          />
         </Section>
         <Section title="Statistics">
           <Statistics

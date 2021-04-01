@@ -2,7 +2,7 @@ import { Component } from 'react';
 
 class Notification extends Component {
   render() {
-    return <p>No feedback given</p>;
+    return <p>{this.props.message}</p>;
   }
 }
 

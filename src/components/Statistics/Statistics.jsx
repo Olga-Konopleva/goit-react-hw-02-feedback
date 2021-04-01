@@ -21,7 +21,7 @@ class Statistics extends Component {
             <li>Positive feedback:{positivePercentage}%</li>
           </ul>
         ) : (
-          <Notification />
+          <Notification message="No feedback given" />
         )}
       </>
     );
