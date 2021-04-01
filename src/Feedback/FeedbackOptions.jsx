@@ -2,11 +2,12 @@ import { Component } from 'react';
 
 class FeedbackOptions extends Component {
   render() {
+    const { onLeaveFeedback } = this.props;
     return (
       <div>
-        <button onClick={this.handleIncrement}>Good</button>
-        <button onClick={this.handleIncrement}>Neutral</button>
-        <button onClick={this.handleIncrement}>Bad</button>
+        <button onClick={onLeaveFeedback}>Good</button>
+        <button onClick={onLeaveFeedback}>Neutral</button>
+        <button onClick={onLeaveFeedback}>Bad</button>
       </div>
     );
   }

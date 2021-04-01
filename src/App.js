@@ -25,7 +25,7 @@ class App extends Component {
     if (this.state.good === 0) {
       return 0;
     }
-    return (this.state.good / total) * 100;
+    return Math.round((this.state.good / total) * 100);
   };
   render() {
     const { good, neutral, bad } = this.state;
