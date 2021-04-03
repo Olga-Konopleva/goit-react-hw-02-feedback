@@ -1,5 +1,16 @@
 import { Component } from 'react';
+import styled from 'styled-components';
 import Notification from '../Notification/Notification';
+
+const Ul = styled.ul`
+  list-style: none;
+  padding-left: 10px;
+`;
+const Li = styled.li`
+  &:not(:last-child) {
+    margin-bottom: 10px;
+  }
+`;
 
 class Statistics extends Component {
   render() {
@@ -13,13 +24,13 @@ class Statistics extends Component {
     return (
       <>
         {total ? (
-          <ul>
-            <li>Good:{good}</li>
-            <li>Neutral:{neutral}</li>
-            <li>Bad:{bad}</li>
-            <li>Total:{total}</li>
-            <li>Positive feedback:{positivePercentage}%</li>
-          </ul>
+          <Ul>
+            <Li>Good: {good}</Li>
+            <Li>Neutral: {neutral}</Li>
+            <Li>Bad: {bad}</Li>
+            <Li>Total: {total}</Li>
+            <Li>Positive feedback: {positivePercentage}%</Li>
+          </Ul>
         ) : (
           <Notification message="No feedback given" />
         )}

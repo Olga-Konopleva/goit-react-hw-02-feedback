@@ -1,12 +1,25 @@
 import { Component } from 'react';
+import styled from 'styled-components';
+
+const Button = styled.button`
+  text-transform: capitalize;
+  border-radius: 3px;
+
+  &:not(:last-child) {
+    margin-right: 8px;
+  }
+  &:hover {
+    background: white;
+  }
+`;
 
 class FeedbackButtons extends Component {
   render() {
     const { option, onLeaveFeedback } = this.props;
     return (
-      <button onClick={onLeaveFeedback} data-feedback={option}>
+      <Button onClick={onLeaveFeedback} data-feedback={option}>
         {option}
-      </button>
+      </Button>
     );
   }
 }
